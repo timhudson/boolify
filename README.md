@@ -28,6 +28,15 @@ console.log(obj.s === 'Another string')
 console.log(obj.n === 5)
 ```
 
+This is helpful for handling checkboxes in express' `req.body`
+``` js
+app.put('/users/:username', function(req, res) {
+  console.log(req.body.someCheckbox) // 'true'
+  req.body = boolify(req.body)
+  console.log(req.body.someCheckbox) // true
+})
+```
+
 # install
 
 With [npm](https://npmjs.org) do:
