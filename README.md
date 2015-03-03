@@ -45,6 +45,10 @@ With [npm](https://npmjs.org) do:
 npm install boolify
 ```
 
+# see also
+
+ * [yn](https://github.com/sindresorhus/yn) supports additional values for booleans, both uppercase and lowercase, and returns null when a value is recognized is neither `true` or `false`
+
 # license
 
 MIT
