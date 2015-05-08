@@ -1,4 +1,4 @@
-var test = require('tap').test
+var test = require('tape')
   , boolify = require('../index.js')
 
 var trueString = boolify('true')
