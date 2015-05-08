@@ -21,3 +21,17 @@ test('Make sure all values are the appropriate type', function(t) {
   t.equal(obj.n, 5)
   t.end()
 })
+
+test('Is case-insensitive', function(t) {
+  t.equal(boolify('TRUE'), true)
+  t.equal(boolify('tRuE'), true)
+  t.equal(boolify('FALSE'), false)
+  t.equal(boolify('fAlSe'), false)
+  t.end()
+})
+
+test('Traverses objects recursively', function(t) {
+  var data = boolify({one: {fish: {two: {fish: 'true'}}}})
+  t.equal(data.one.fish.two.fish, true)
+  t.end()
+})
