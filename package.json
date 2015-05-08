@@ -1,7 +1,7 @@
 {
   "name": "boolify",
   "description": "Convert true/false strings to booleans",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "repository": {
     "url": "git://github.com/timhudson/boolify.git"
   },
