@@ -4,31 +4,47 @@ Convert true/false strings to booleans
 
 [![Build Status](https://travis-ci.org/timhudson/boolify.png?branch=master)](https://travis-ci.org/timhudson/boolify)
 
-# example
+## Example
 
 ``` js
-var boolify = require('../index.js')
+var boolify = require('boolify')
 
-var trueString = boolify('true')
-var falseString = boolify('false')
-var aString = boolify('A string')
+boolify('true')
+// true
+
+boolify('false')
+// false
+
+boolify('A string')
+// "A string"
+
 var obj = boolify({
   t: 'true',
   f: 'false',
   s: 'Another string',
   n: 5
 })
+// {
+//   t: true,
+//   f: false,
+//   s: 'Another string',
+//   n: 5
+// }
 
-console.log(trueString === true)
-console.log(falseString === false)
-console.log(aString === 'A string')
-console.log(obj.t === true)
-console.log(obj.f === false)
-console.log(obj.s === 'Another string')
-console.log(obj.n === 5)
+boolify('TRUE')
+// true
+
+boolify('tRuE')
+// true
 ```
 
+## Usage
+
+`boolify` is case-insensitive and will convert any string of `"true"` or `"false"` in to the
+appropriate boolean.
+
 This is helpful for handling checkboxes in express' `req.body`
+
 ``` js
 app.put('/users/:username', function(req, res) {
   console.log(req.body.someCheckbox) // 'true'
@@ -37,7 +53,17 @@ app.put('/users/:username', function(req, res) {
 })
 ```
 
-# install
+### `boolify(object | string)`
+
+If provided an object, `boolify` will recursively convert all values.
+
+``` js
+var result = boolify({one: {fish: {two: {fish: 'true'}}}})
+console.log(result.one.fish.two.fish)
+// true
+```
+
+## Install
 
 With [npm](https://npmjs.org) do:
 
@@ -45,10 +71,10 @@ With [npm](https://npmjs.org) do:
 npm install boolify
 ```
 
-# see also
+## See also
 
  * [yn](https://github.com/sindresorhus/yn) supports additional values for booleans, both uppercase and lowercase, and returns null when a value is recognized is neither `true` or `false`
 
-# license
+## License
 
 MIT
