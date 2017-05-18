@@ -2,6 +2,7 @@
   "name": "boolify",
   "description": "Convert true/false strings to booleans",
   "version": "1.0.0",
+  "license": "MIT",
   "repository": {
     "url": "git://github.com/timhudson/boolify.git"
   },
